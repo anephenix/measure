@@ -77,7 +77,7 @@ class Measure {
   }
 
   /*
-    Returns an object with keys of how many times each vaule has occurred
+    Returns an object with keys of how many times each value has occurred
   */
   counts(): object {
     const counts:CountObject = {}
