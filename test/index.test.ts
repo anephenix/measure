@@ -132,21 +132,21 @@ describe('Measure', () => {
 
       describe('when there are recordings', () => {
 
-        it('should return the standard deviation of the recordings', () => {
+        it('should return the sample variance of the recordings', () => {
           const measure = new Measure();
           const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.variance()).toEqual(1.359375);
+          expect(measure.variance()).toEqual(1.5535714285714286);
         });
 
       });
 
-      describe('when the recordings are a sample instead of the population of measures', () => {
-        it('should return the sample variance', () => {
-          const measure = new Measure({type: 'sample'});
-          const values = [1,2,2,3,3,3,4,5]; // 6, 7, 8
+      describe('when the recordings are the population instead of a sample of measures', () => {
+        it('should return the population variance', () => {
+          const measure = new Measure({type: 'population'});
+          const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.variance()).toEqual(1.5535714285714286);
+          expect(measure.variance()).toEqual(1.359375);
         });
       });
 
@@ -165,21 +165,21 @@ describe('Measure', () => {
 
       describe('when there are recordings', () => {
 
-        it('should return the standard deviation of the recordings', () => {
+        it('should return the sample standard deviation of the recordings', () => {
           const measure = new Measure();
           const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.stdev()).toEqual(1.165922381636102);
+          expect(measure.stdev()).toEqual(1.246423454758225);
         });
 
       });
 
-      describe('when the recordings are a sample instead of the population of measures', () => {
-        it('should return the sample standard deviation', () => {
-          const measure = new Measure({type: 'sample'});
+      describe('when the recordings are a population instead of the population of measures', () => {
+        it('should return the population standard deviation', () => {
+          const measure = new Measure({type: 'population'});
           const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.stdev()).toEqual(1.246423454758225);         
+          expect(measure.stdev()).toEqual(1.165922381636102);         
         });
       });
 
@@ -201,8 +201,8 @@ describe('Measure', () => {
           const measure = new Measure();
           const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.zscore(4)).toEqual(0.9649012813540153);
-          expect(measure.zscore(1)).toEqual(-1.6081688022566922);
+          expect(measure.zscore(4)).toEqual(0.9025825017214731);
+          expect(measure.zscore(1)).toEqual(-1.5043041695357886);
         });
       });
 

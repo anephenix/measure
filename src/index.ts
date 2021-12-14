@@ -15,7 +15,7 @@ class Measure {
   recordings: Array<number>;
 
   constructor(props:MeasureProps={}) {
-    this.type = props.type || 'population';
+    this.type = props.type || 'sample';
     this.recordings = [];
   }
 

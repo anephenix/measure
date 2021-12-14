@@ -15,11 +15,19 @@ npm i @anephenix/measure
 ### Usage
 
 ```javascript
+// Setting up your Measure instance
+const measure = new Measure({
+  // Can be either 'sample' or 'population' - default value is sample
+  type: 'sample',
+});
+
 // I want to record some measurements locally
 const value = 2;
-
-const measure = new Measure();
 measure.record(value);
+
+// Or pass more values
+const moreValues = [3, 4, 5];
+measure.record(moreValues);
 
 // Get all of the recordings
 measure.recordings;
@@ -37,6 +45,9 @@ measure.variance();
 
 // Get an object detailing how many times each value occurs
 measure.counts();
+
+// Calculate the standard score (z-score) of a value
+measure.zscore(3);
 ```
 
 ### Tests
