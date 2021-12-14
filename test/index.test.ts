@@ -143,10 +143,10 @@ describe('Measure', () => {
 
       describe('when the recordings are a sample instead of the population of measures', () => {
         it('should return the sample variance', () => {
-          const measure = new Measure();
+          const measure = new Measure({type: 'sample'});
           const values = [1,2,2,3,3,3,4,5]; // 6, 7, 8
           values.forEach(v => measure.record(v))
-          expect(measure.variance('sample')).toEqual(1.5535714285714286);
+          expect(measure.variance()).toEqual(1.5535714285714286);
         });
       });
 
@@ -176,10 +176,33 @@ describe('Measure', () => {
 
       describe('when the recordings are a sample instead of the population of measures', () => {
         it('should return the sample standard deviation', () => {
+          const measure = new Measure({type: 'sample'});
+          const values = [1,2,2,3,3,3,4,5];
+          values.forEach(v => measure.record(v))
+          expect(measure.stdev()).toEqual(1.246423454758225);         
+        });
+      });
+
+    });
+
+    describe('#zscore', () => {
+
+      describe('when there are no recordings yet', () => {
+          
+          it('should return null', () => {
+            const measure = new Measure();
+            expect(measure.zscore(5)).toEqual(null);
+          });
+    
+      });
+
+      describe('when there are recordings', () => {
+        it('should return the z-score for a value', () => {
           const measure = new Measure();
           const values = [1,2,2,3,3,3,4,5];
           values.forEach(v => measure.record(v))
-          expect(measure.stdev('sample')).toEqual(1.246423454758225);         
+          expect(measure.zscore(4)).toEqual(0.9649012813540153);
+          expect(measure.zscore(1)).toEqual(-1.6081688022566922);
         });
       });
 

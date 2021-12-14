@@ -5,11 +5,17 @@ interface CountObject {
 
 type MeasureType = 'sample'|'population';
 
+interface MeasureProps {
+  type?: MeasureType
+}
+
 class Measure {
 
+  type: MeasureType;
   recordings: Array<number>;
 
-  constructor() {
+  constructor(props:MeasureProps={}) {
+    this.type = props.type || 'population';
     this.recordings = [];
   }
 
@@ -97,7 +103,7 @@ class Measure {
     return counts;
   }
 
-  variance(type:MeasureType = 'population'):null|number {
+  variance():null|number {
     const mean:null|number = this.mean();
     if (mean === null) return null;
     const deviations = this.recordings.map((recording:number) => {
@@ -106,17 +112,28 @@ class Measure {
     })
     const sumFunction = (total:number, recording:number) => total + recording;
     const sumOfDeviations = deviations.reduce(sumFunction,0);
-    const divisor = type === 'population' ? this.recordings.length : this.recordings.length - 1;
+    const divisor = this.type === 'population' ? this.recordings.length : this.recordings.length - 1;
     return (sumOfDeviations / divisor);
   }
 
   /*
     Returns the standard deviation of the recordings
   */
-  stdev(type:MeasureType = 'population'):null|number {
-    const variance:null|number = this.variance(type);
+  stdev():null|number {
+    const variance:null|number = this.variance();
     if (variance === null) return null;
     return Math.sqrt(variance);
+  }
+
+  /*
+    Returns the standard score of a value
+  */
+  zscore(value:number):null|number {
+    if (this.recordings.length === 0) return null;
+    const mean = this.mean();
+    const stdev = this.stdev();
+    if (!mean || !stdev) return null;
+    return (value - mean) / stdev;
   }
 
 };
