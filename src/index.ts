@@ -20,8 +20,12 @@ class Measure {
   }
 
   // Adds the recording to the list of recordings
-  record(value:number) {
-    this.recordings.push(value);
+  record(valueOrValues:number|Array<number>):void {
+    if (valueOrValues instanceof Array) {
+      this.recordings.push(...valueOrValues);
+    } else {
+      this.recordings.push(valueOrValues);
+    }
   }
 
   /*

@@ -10,6 +10,14 @@ describe('Measure', () => {
       expect(measure.recordings).toStrictEqual([4]);
     });
 
+    describe('when the value is an array', () => {
+      it('should add all of the items in the array to the recordings', () => {
+        const measure = new Measure();
+        measure.record([4, 5, 6]);
+        expect(measure.recordings).toStrictEqual([4, 5, 6]);
+        });
+    });
+
   });
 
   describe('#mean', () => {
