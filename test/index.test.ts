@@ -141,6 +141,15 @@ describe('Measure', () => {
 
       });
 
+      describe('when the recordings are a sample instead of the population of measures', () => {
+        it('should return the sample variance', () => {
+          const measure = new Measure();
+          const values = [1,2,2,3,3,3,4,5]; // 6, 7, 8
+          values.forEach(v => measure.record(v))
+          expect(measure.variance('sample')).toEqual(1.5535714285714286);
+        });
+      });
+
     })
 
     describe('#stdev', () => {
@@ -163,6 +172,15 @@ describe('Measure', () => {
           expect(measure.stdev()).toEqual(1.165922381636102);
         });
 
+      });
+
+      describe('when the recordings are a sample instead of the population of measures', () => {
+        it('should return the sample standard deviation', () => {
+          const measure = new Measure();
+          const values = [1,2,2,3,3,3,4,5];
+          values.forEach(v => measure.record(v))
+          expect(measure.stdev('sample')).toEqual(1.246423454758225);         
+        });
       });
 
     });

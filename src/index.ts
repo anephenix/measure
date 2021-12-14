@@ -3,6 +3,8 @@ interface CountObject {
   [key: string]: number;
 }
 
+type MeasureType = 'sample'|'population';
+
 class Measure {
 
   recordings: Array<number>;
@@ -95,7 +97,7 @@ class Measure {
     return counts;
   }
 
-  variance():null|number {
+  variance(type:MeasureType = 'population'):null|number {
     const mean:null|number = this.mean();
     if (mean === null) return null;
     const deviations = this.recordings.map((recording:number) => {
@@ -104,14 +106,15 @@ class Measure {
     })
     const sumFunction = (total:number, recording:number) => total + recording;
     const sumOfDeviations = deviations.reduce(sumFunction,0);
-    return (sumOfDeviations / this.recordings.length);
+    const divisor = type === 'population' ? this.recordings.length : this.recordings.length - 1;
+    return (sumOfDeviations / divisor);
   }
 
   /*
     Returns the standard deviation of the recordings
   */
-  stdev():null|number {
-    const variance:null|number = this.variance();
+  stdev(type:MeasureType = 'population'):null|number {
+    const variance:null|number = this.variance(type);
     if (variance === null) return null;
     return Math.sqrt(variance);
   }
