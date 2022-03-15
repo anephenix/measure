@@ -1,13 +1,16 @@
+import { MeasureType, ValueType } from './global';
+
+// Interfaces
+
+interface MeasureProps {
+  type?: MeasureType
+}
 
 interface CountObject {
   [key: string]: number;
 }
 
-type MeasureType = 'sample'|'population';
-
-interface MeasureProps {
-  type?: MeasureType
-}
+// Main class
 
 class Measure {
 
@@ -20,7 +23,7 @@ class Measure {
   }
 
   // Adds the recording to the list of recordings
-  record(valueOrValues:number|Array<number>):void {
+  record(valueOrValues:ValueType):void {
     if (valueOrValues instanceof Array) {
       this.recordings.push(...valueOrValues);
     } else {
