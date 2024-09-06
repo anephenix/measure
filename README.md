@@ -13,7 +13,7 @@ npm i @anephenix/measure
 
 ### Dependencies
 
-- Node.js (version 14+)
+- Node.js (version 20+)
 
 ### Usage
 
