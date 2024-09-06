@@ -8,20 +8,21 @@
     "src"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "analyze": "size-limit --why",
+    "build": "tsc --project tsconfig.json",
+    "check-prettier": "prettier src test --check",
+    "cover": "NODE_ENV=test npx nyc --reporter=lcov npm t",
+    "prettier": "prettier src test --write",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "test": "NODE_ENV=test npx mocha --require ts-node/register --extensions ts,tsx test/* --test",
+    "watch": "tsc --project tsconfig.json --watch"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint && tsdx test"
+      "pre-commit": "npm run build && npm run prettier && npm run size && npm test"
     }
   },
   "prettier": {
@@ -32,23 +33,24 @@
   },
   "name": "measure",
   "author": "Paul Jensen",
-  "module": "dist/measure.esm.js",
   "size-limit": [
     {
-      "path": "dist/measure.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/measure.esm.js",
+      "path": "dist/index.js",
       "limit": "10 KB"
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "husky": "^8.0.1",
-    "size-limit": "^7.0.8",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "@size-limit/esbuild-why": "^11.1.4",
+    "@size-limit/preset-small-lib": "^11.1.4",
+    "@types/mocha": "^10.0.7",
+    "husky": "^9.1.5",
+    "mocha": "^10.7.3",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^17.0.0",
+    "prettier": "^3.3.3",
+    "size-limit": "^11.1.4",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.5.4"
   }
 }
