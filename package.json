@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "measure",
+  "name": "@anephenix/measure",
   "author": "Paul Jensen",
   "size-limit": [
     {
