@@ -8,7 +8,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "analyze": "size-limit --why",
