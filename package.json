@@ -35,7 +35,13 @@
     "trailingComma": "es5"
   },
   "name": "@anephenix/measure",
-  "author": "Paul Jensen",
+  "author": "Paul Jensen <paul@anephenix.com>",
+  "maintainers": [
+    {
+      "name": "Paul Jensen",
+      "email": "paul@anephenix.com"
+    }
+  ],
   "size-limit": [
     {
       "path": "dist/index.js",
