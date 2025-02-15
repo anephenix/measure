@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.1.4 - Saturday 15th February, 2025
+
+- Fixed size script
+- Merge pull request #23 from anephenix/dependabot/npm_and_yarn/prettier-3.5.1
+- Bump prettier from 3.5.0 to 3.5.1
+- Merge pull request #22 from anephenix/dependabot/npm_and_yarn/prettier-3.5.0
+- Bump prettier from 3.4.2 to 3.5.0
+
 ### 0.1.3 - Tuesday 28th January, 2025
 
 - Merge branch 'main' of github.com:anephenix/measure
