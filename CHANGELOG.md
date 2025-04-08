@@ -1,5 +1,21 @@
 # Changelog
 
+### 0.1.5 - Tuesday 8th April, 2025
+
+- Updated dependencies
+- Merge pull request #30 from anephenix/dependabot/npm_and_yarn/typescript-5.8.3
+- Bump typescript from 5.8.2 to 5.8.3
+- Merge pull request #28 from anephenix/dependabot/npm_and_yarn/typescript-5.8.2
+- Merge pull request #29 from anephenix/dependabot/npm_and_yarn/prettier-3.5.3
+- Bump prettier from 3.5.2 to 3.5.3
+- Bump typescript from 5.7.3 to 5.8.2
+- Merge pull request #27 from anephenix/dependabot/npm_and_yarn/prettier-3.5.2
+- Bump prettier from 3.5.1 to 3.5.2
+- Merge pull request #26 from anephenix/dependabot/npm_and_yarn/size-limit/esbuild-why-11.2.0
+- Bump @size-limit/esbuild-why from 11.1.6 to 11.2.0
+- Merge pull request #24 from anephenix/dependabot/npm_and_yarn/size-limit/preset-small-lib-11.2.0
+- Bump @size-limit/preset-small-lib from 11.1.6 to 11.2.0
+
 ### 0.1.4 - Saturday 15th February, 2025
 
 - Fixed size script
