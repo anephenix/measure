@@ -177,4 +177,31 @@ describe('Measure', () => {
       });
     });
   });
+
+  describe('#simpleMovingAverage', () => {
+    it('should return an empty array when there are no recordings', () => {
+      const measure = new Measure();
+      assert.deepEqual(measure.simpleMovingAverage(), []);
+    });
+
+    it('should return the cumulative moving average by default', () => {
+      const measure = new Measure();
+      [2, 4, 6, 8].forEach((v) => measure.record(v));
+      // Cumulative averages: [2, 3, 4, 5]
+      assert.deepEqual(measure.simpleMovingAverage(), [2, 3, 4, 5]);
+    });
+
+    it('should return the simple moving average for a given window size', () => {
+      const measure = new Measure();
+      [1, 2, 3, 4, 5].forEach((v) => measure.record(v));
+      // Window size 3: [1, 1.5, 2, 3, 4]
+      assert.deepEqual(measure.simpleMovingAverage(3), [1, 1.5, 2, 3, 4]);
+    });
+
+    it('should handle window size larger than the number of recordings', () => {
+      const measure = new Measure();
+      [10, 20].forEach((v) => measure.record(v));
+      assert.deepEqual(measure.simpleMovingAverage(5), [10, 15]);
+    });
+  });
 });

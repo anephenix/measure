@@ -141,6 +141,26 @@ class Measure {
     if (!mean || !stdev) return null;
     return (value - mean) / stdev;
   }
+
+  /*
+    Returns an array of simple moving averages for the recordings.
+    The window size defaults to the full length of the recordings (cumulative average).
+    If there are no recordings, returns an empty array.
+    If windowSize is provided, calculates the moving average for that window.
+  */
+  simpleMovingAverage(windowSize?: number): number[] {
+    if (this.recordings.length === 0) return [];
+    const result: number[] = [];
+    const n = this.recordings.length;
+    const w = windowSize && windowSize > 0 ? windowSize : n;
+    for (let i = 0; i < n; i++) {
+      const start = Math.max(0, i - w + 1);
+      const window = this.recordings.slice(start, i + 1);
+      const sum = window.reduce((acc, val) => acc + val, 0);
+      result.push(sum / window.length);
+    }
+    return result;
+  }
 }
 
 export default Measure;
