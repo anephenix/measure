@@ -51,6 +51,9 @@ measure.counts();
 
 // Calculate the standard score (z-score) of a value
 measure.zscore(3);
+
+// Calculate the simple moving average over the last N recordings
+measure.simpleMovingAverage(3); // Returns the average of the last 3 recordings
 ```
 
 ### Tests
@@ -62,3 +65,4 @@ npm t
 ### License and Credits.
 
 &copy; 2025 Anephenix OÜ. Measure is licensed under the MIT license.
+
