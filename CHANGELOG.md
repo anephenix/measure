@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.1.7 - Monday 26th May, 2025
+
+- Merge pull request #36 from anephenix/dependabot/npm_and_yarn/mocha-11.5.0
+- Bump mocha from 11.4.0 to 11.5.0
+- Merge pull request #35 from anephenix/dependabot/npm_and_yarn/types/node-22.15.21
+- Bump @types/node from 22.15.19 to 22.15.21
+- Updated the Readme with the simpleMovingAverage example
+
 ### 0.1.6 - Tuesday 20th May, 2025
 
 - Added support for simple moving average
