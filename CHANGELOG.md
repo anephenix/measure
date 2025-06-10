@@ -1,5 +1,21 @@
 # Changelog
 
+### 0.1.8 - Tuesday 10th June, 2025
+
+- Merge pull request #42 from anephenix/dependabot/npm_and_yarn/mocha-11.6.0
+- Bump mocha from 11.5.0 to 11.6.0
+- Merge pull request #41 from anephenix/dependabot/npm_and_yarn/types/node-22.15.30
+- Bump @types/node from 22.15.29 to 22.15.30
+- Modified GitHub workflow permissions
+- Merge pull request #40 from anephenix/dependabot/npm_and_yarn/types/node-22.15.29
+- Bump @types/node from 22.15.27 to 22.15.29
+- Merge pull request #39 from anephenix/dependabot/npm_and_yarn/types/node-22.15.27
+- Bump @types/node from 22.15.24 to 22.15.27
+- Merge pull request #38 from anephenix/dependabot/npm_and_yarn/types/node-22.15.24
+- Bump @types/node from 22.15.23 to 22.15.24
+- Merge pull request #37 from anephenix/dependabot/npm_and_yarn/types/node-22.15.23
+- Bump @types/node from 22.15.21 to 22.15.23
+
 ### 0.1.7 - Monday 26th May, 2025
 
 - Merge pull request #36 from anephenix/dependabot/npm_and_yarn/mocha-11.5.0
