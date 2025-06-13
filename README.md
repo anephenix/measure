@@ -2,7 +2,7 @@
 
 A measurement framework from Anephenix
 
-[![npm version](https://badge.fury.io/js/%40anephenix%2Fmeasure.svg)](https://badge.fury.io/js/%40anephenix%2Fmeasure) ![example workflow](https://github.com/anephenix/measure/actions/workflows/main.yml/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/29e00e4e0818c7d50786/maintainability)](https://codeclimate.com/github/anephenix/measure/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/29e00e4e0818c7d50786/test_coverage)](https://codeclimate.com/github/anephenix/measure/test_coverage) [![Socket Badge](https://socket.dev/api/badge/npm/package/@anephenix/measure)](https://socket.dev/npm/package/@anephenix/measure)
+[![npm version](https://badge.fury.io/js/%40anephenix%2Fmeasure.svg)](https://badge.fury.io/js/%40anephenix%2Fmeasure) ![example workflow](https://github.com/anephenix/measure/actions/workflows/main.yml/badge.svg) [![Socket Badge](https://socket.dev/api/badge/npm/package/@anephenix/measure)](https://socket.dev/npm/package/@anephenix/measure)
 
 
 ### Install

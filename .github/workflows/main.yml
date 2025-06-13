@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build:
     env:
-        CC_TEST_REPORTER_ID: 5e336cf788ad4ee3b5af94f7b5b5156e82d15068a2bd58b0978b16cc1ff8555d
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
@@ -22,14 +21,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm i
-      - if: matrix.os == 'ubuntu-latest'
-        run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - if: matrix.os == 'ubuntu-latest'
-        run: chmod +x ./cc-test-reporter
-      - if: matrix.os == 'ubuntu-latest'
-        run: ./cc-test-reporter before-build
       - run: npm run cover
-      - if: matrix.os == 'ubuntu-latest'
-        run: ./cc-test-reporter after-build
       - name: Build
-        run: npm run build     
+        run: npm run build
