@@ -4,7 +4,6 @@ permissions:
 on: [push]
 jobs:
   build:
-    env:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
