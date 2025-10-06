@@ -1,5 +1,80 @@
 # Changelog
 
+### 0.1.9 - Monday 6th October, 2025
+
+- Updated the package-lock.json file
+- Merge pull request #77 from anephenix/dependabot/npm_and_yarn/mocha-11.7.4
+- Bump mocha from 11.7.3 to 11.7.4
+- Merge pull request #76 from anephenix/dependabot/npm_and_yarn/types/node-24.6.2
+- Bump @types/node from 24.6.0 to 24.6.2
+- Merge pull request #75 from anephenix/dependabot/npm_and_yarn/typescript-5.9.3
+- Bump typescript from 5.9.2 to 5.9.3
+- Merge pull request #72 from anephenix/dependabot/npm_and_yarn/cross-env-10.1.0
+- Bump cross-env from 10.0.0 to 10.1.0
+- Merge pull request #73 from anephenix/dependabot/npm_and_yarn/mocha-11.7.3
+- Merge pull request #71 from anephenix/dependabot/npm_and_yarn/types/node-24.6.0
+- Bump mocha from 11.7.2 to 11.7.3
+- Bump @types/node from 24.5.2 to 24.6.0
+- Merge pull request #70 from anephenix/dependabot/npm_and_yarn/types/node-24.5.2
+- Bump @types/node from 24.5.1 to 24.5.2
+- Merge pull request #69 from anephenix/dependabot/npm_and_yarn/types/node-24.5.1
+- Bump @types/node from 24.5.0 to 24.5.1
+- Merge pull request #68 from anephenix/dependabot/npm_and_yarn/types/node-24.5.0
+- Bump @types/node from 24.4.0 to 24.5.0
+- Merge pull request #67 from anephenix/dependabot/npm_and_yarn/types/node-24.4.0
+- Bump @types/node from 24.3.1 to 24.4.0
+- Merge pull request #66 from anephenix/dependabot/npm_and_yarn/types/node-24.3.1
+- Bump @types/node from 24.3.0 to 24.3.1
+- Merge pull request #65 from anephenix/dependabot/npm_and_yarn/mocha-11.7.2
+- Bump mocha from 11.7.1 to 11.7.2
+- Merge pull request #64 from anephenix/dependabot/npm_and_yarn/types/node-24.3.0
+- Bump @types/node from 24.2.1 to 24.3.0
+- Merge pull request #63 from anephenix/dependabot/npm_and_yarn/types/node-24.2.1
+- Bump @types/node from 24.2.0 to 24.2.1
+- Merge pull request #62 from anephenix/dependabot/npm_and_yarn/types/node-24.2.0
+- Bump @types/node from 24.1.0 to 24.2.0
+- Merge pull request #61 from anephenix/dependabot/npm_and_yarn/typescript-5.9.2
+- Bump typescript from 5.8.3 to 5.9.2
+- Merge pull request #60 from anephenix/dependabot/npm_and_yarn/cross-env-10.0.0
+- Bump cross-env from 7.0.3 to 10.0.0
+- Small fix for some invalid YAML for one of the GitHub workflow files
+- Merge pull request #59 from anephenix/dependabot/npm_and_yarn/types/node-24.1.0
+- Bump @types/node from 24.0.15 to 24.1.0
+- Merge pull request #58 from anephenix/dependabot/npm_and_yarn/types/node-24.0.15
+- Bump @types/node from 24.0.14 to 24.0.15
+- Merge pull request #57 from anephenix/dependabot/npm_and_yarn/types/node-24.0.14
+- Bump @types/node from 24.0.13 to 24.0.14
+- Merge pull request #56 from anephenix/dependabot/npm_and_yarn/types/node-24.0.13
+- Bump @types/node from 24.0.12 to 24.0.13
+- Merge pull request #55 from anephenix/dependabot/npm_and_yarn/types/node-24.0.12
+- Bump @types/node from 24.0.10 to 24.0.12
+- Updated dependencies
+- Merge pull request #54 from anephenix/dependabot/npm_and_yarn/types/node-24.0.10
+- Bump @types/node from 24.0.8 to 24.0.10
+- Merge pull request #53 from anephenix/dependabot/npm_and_yarn/types/node-24.0.8
+- Bump @types/node from 24.0.7 to 24.0.8
+- Merge pull request #52 from anephenix/dependabot/npm_and_yarn/types/node-24.0.7
+- Bump @types/node from 24.0.4 to 24.0.7
+- Merge pull request #51 from anephenix/dependabot/npm_and_yarn/prettier-3.6.2
+- Bump prettier from 3.6.1 to 3.6.2
+- Merge pull request #50 from anephenix/dependabot/npm_and_yarn/prettier-3.6.1
+- Merge pull request #49 from anephenix/dependabot/npm_and_yarn/types/node-24.0.4
+- Bump prettier from 3.6.0 to 3.6.1
+- Bump @types/node from 24.0.3 to 24.0.4
+- Merge pull request #48 from anephenix/dependabot/npm_and_yarn/mocha-11.7.1
+- Bump mocha from 11.7.0 to 11.7.1
+- Merge pull request #47 from anephenix/dependabot/npm_and_yarn/prettier-3.6.0
+- Bump prettier from 3.5.3 to 3.6.0
+- Merge pull request #46 from anephenix/dependabot/npm_and_yarn/mocha-11.7.0
+- Bump mocha from 11.6.0 to 11.7.0
+- Merge pull request #45 from anephenix/dependabot/npm_and_yarn/types/node-24.0.3
+- Bump @types/node from 24.0.1 to 24.0.3
+- Removed CodeClimate and updated dependencies
+- Merge pull request #44 from anephenix/dependabot/npm_and_yarn/types/node-24.0.1
+- Bump @types/node from 24.0.0 to 24.0.1
+- Merge pull request #43 from anephenix/dependabot/npm_and_yarn/types/node-24.0.0
+- Bump @types/node from 22.15.30 to 24.0.0
+
 ### 0.1.8 - Tuesday 10th June, 2025
 
 - Merge pull request #42 from anephenix/dependabot/npm_and_yarn/mocha-11.6.0
