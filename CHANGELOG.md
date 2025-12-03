@@ -1,5 +1,66 @@
 # Changelog
 
+### 0.1.11 - Wednesday 3rd December, 2025
+
+- Merge branch 'main' of github.com:anephenix/measure
+- Updated license
+- Merge pull request #108 from anephenix/dependabot/npm_and_yarn/prettier-3.7.4
+- Merge pull request #107 from anephenix/dependabot/npm_and_yarn/vitest-4.0.15
+- Bump prettier from 3.7.3 to 3.7.4
+- Bump vitest from 4.0.14 to 4.0.15
+- Updated dependencies
+- Updated dependencies
+- Merge pull request #103 from anephenix/dependabot/npm_and_yarn/prettier-3.7.3
+- Bump prettier from 3.7.1 to 3.7.3
+- Merge pull request #102 from anephenix/dependabot/npm_and_yarn/prettier-3.7.1
+- Bump prettier from 3.6.2 to 3.7.1
+- Merge pull request #101 from anephenix/dependabot/npm_and_yarn/vitest-4.0.14
+- Bump vitest from 4.0.13 to 4.0.14
+- Merge pull request #100 from anephenix/dependabot/npm_and_yarn/vitest-4.0.13
+- Bump vitest from 4.0.12 to 4.0.13
+- Merge pull request #99 from anephenix/dependabot/npm_and_yarn/vitest-4.0.12
+- Bump vitest from 4.0.10 to 4.0.12
+- Merge pull request #98 from anephenix/dependabot/npm_and_yarn/vitest-4.0.10
+- Bump vitest from 4.0.9 to 4.0.10
+- Merge pull request #97 from anephenix/dependabot/npm_and_yarn/vitest-4.0.9
+- Bump vitest from 4.0.8 to 4.0.9
+- Merge pull request #96 from anephenix/dependabot/npm_and_yarn/types/node-24.10.1
+- Bump @types/node from 24.10.0 to 24.10.1
+- Merge pull request #95 from anephenix/dependabot/npm_and_yarn/vitest-4.0.8
+- Bump vitest from 4.0.7 to 4.0.8
+- Merge pull request #94 from anephenix/dependabot/npm_and_yarn/vitest-4.0.7
+- Bump vitest from 4.0.6 to 4.0.7
+- Merge pull request #93 from anephenix/dependabot/npm_and_yarn/types/node-24.10.0
+- Bump @types/node from 24.9.2 to 24.10.0
+- Merge pull request #92 from anephenix/dependabot/npm_and_yarn/vitest-4.0.6
+- Bump vitest from 4.0.5 to 4.0.6
+- Merge pull request #90 from anephenix/dependabot/npm_and_yarn/vitest-4.0.5
+- Merge pull request #91 from anephenix/dependabot/npm_and_yarn/types/node-24.9.2
+- Bump @types/node from 24.9.1 to 24.9.2
+- Bump vitest from 4.0.4 to 4.0.5
+- Merge pull request #89 from anephenix/dependabot/npm_and_yarn/vitest-4.0.4
+- Bump vitest from 4.0.3 to 4.0.4
+- Merge pull request #88 from anephenix/dependabot/npm_and_yarn/vitest-4.0.3
+- Bump vitest from 4.0.1 to 4.0.3
+- Merge pull request #87 from anephenix/dependabot/npm_and_yarn/vitest-4.0.1
+- Bump vitest from 4.0.0 to 4.0.1
+- Merge pull request #86 from anephenix/dependabot/npm_and_yarn/vitest-4.0.0
+- Bump vitest from 3.2.4 to 4.0.0
+- Merge pull request #85 from anephenix/dependabot/npm_and_yarn/types/node-24.9.1
+- Merge pull request #84 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-fd296dbd23
+- Merge pull request #83 from anephenix/dependabot/npm_and_yarn/publint-0.3.15
+- Bump @types/node from 24.8.1 to 24.9.1
+- Bump vite in the npm_and_yarn group across 1 directory
+- Bump publint from 0.3.14 to 0.3.15
+- Merge pull request #82 from anephenix/dependabot/npm_and_yarn/types/node-24.8.1
+- Bump @types/node from 24.8.0 to 24.8.1
+- Merge pull request #81 from anephenix/dependabot/npm_and_yarn/types/node-24.8.0
+- Bump @types/node from 24.7.2 to 24.8.0
+- Merge pull request #80 from anephenix/dependabot/npm_and_yarn/types/node-24.7.2
+- Bump @types/node from 24.7.1 to 24.7.2
+- Merge pull request #79 from anephenix/dependabot/npm_and_yarn/types/node-24.7.1
+- Bump @types/node from 24.7.0 to 24.7.1
+
 ### 0.1.10 - Wednesday 8th October, 2025
 
 - Removed ts-node dependency and using Node.js native TypeScript support instead
