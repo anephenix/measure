@@ -64,5 +64,5 @@ npm t
 
 ### License and Credits.
 
-&copy; 2025 Anephenix OÜ. Measure is licensed under the MIT license.
+&copy; 2025 Anephenix Ltd. Measure is licensed under the MIT license.
 
