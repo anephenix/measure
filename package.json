@@ -18,6 +18,14 @@
 	"engines": {
 		"node": ">=22"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/anephenix/measure.git"
+	},
+	"homepage": "https://github.com/anephenix/measure",
+	"bugs": {
+		"url": "https://github.com/anephenix/measure/issues"
+	},
 	"scripts": {
 		"analyze": "size-limit --why",
 		"build": "tsc --project tsconfig.json",
