@@ -1,5 +1,24 @@
 # Changelog
 
+### 0.1.12 - Sunday 4th January, 2026
+
+- Tweaks for new publish workflow
+- Updated dependencies
+- Merge pull request #115 from anephenix/dependabot/npm_and_yarn/vitest-4.0.16
+- Merge pull request #114 from anephenix/dependabot/npm_and_yarn/types/node-25.0.3
+- Bump vitest from 4.0.15 to 4.0.16
+- Bump @types/node from 25.0.2 to 25.0.3
+- Merge pull request #113 from anephenix/dependabot/npm_and_yarn/types/node-25.0.2
+- Bump @types/node from 25.0.1 to 25.0.2
+- Merge pull request #112 from anephenix/dependabot/npm_and_yarn/types/node-25.0.1
+- Bump @types/node from 25.0.0 to 25.0.1
+- Merge pull request #111 from anephenix/dependabot/npm_and_yarn/types/node-25.0.0
+- Bump @types/node from 24.10.2 to 25.0.0
+- Merge pull request #110 from anephenix/dependabot/npm_and_yarn/publint-0.3.16
+- Bump publint from 0.3.15 to 0.3.16
+- Merge pull request #109 from anephenix/dependabot/npm_and_yarn/types/node-24.10.2
+- Bump @types/node from 24.10.1 to 24.10.2
+
 ### 0.1.11 - Wednesday 3rd December, 2025
 
 - Merge branch 'main' of github.com:anephenix/measure
