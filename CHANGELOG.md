@@ -1,5 +1,63 @@
 # Changelog
 
+### 0.1.13 - Saturday 21st March, 2026
+
+- Updated dependencies
+- Merge pull request #144 from anephenix/dependabot/npm_and_yarn/types/node-25.5.0
+- Bump @types/node from 25.4.0 to 25.5.0
+- Merge pull request #143 from anephenix/dependabot/npm_and_yarn/vitest-4.1.0
+- Bump vitest from 4.0.18 to 4.1.0
+- Merge pull request #142 from anephenix/dependabot/npm_and_yarn/types/node-25.4.0
+- Bump @types/node from 25.3.5 to 25.4.0
+- Updated the workflows to use the latest version of checkout and setup-node actions
+- Updated dependencies
+- Merge pull request #138 from anephenix/dependabot/npm_and_yarn/types/node-25.3.5
+- Bump @types/node from 25.3.3 to 25.3.5
+- Merge pull request #136 from anephenix/dependabot/npm_and_yarn/types/node-25.3.3
+- Merge pull request #137 from anephenix/dependabot/npm_and_yarn/publint-0.3.18
+- Bump publint from 0.3.17 to 0.3.18
+- Bump @types/node from 25.3.2 to 25.3.3
+- Merge pull request #135 from anephenix/dependabot/npm_and_yarn/types/node-25.3.2
+- Bump @types/node from 25.3.1 to 25.3.2
+- Merge pull request #132 from anephenix/dependabot/npm_and_yarn/nyc-18.0.0
+- Merge pull request #134 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-b2936519f3
+- Bump rollup in the npm_and_yarn group across 1 directory
+- Merge pull request #133 from anephenix/dependabot/npm_and_yarn/types/node-25.3.1
+- Bump @types/node from 25.3.0 to 25.3.1
+- Bump nyc from 17.1.0 to 18.0.0
+- Merge pull request #131 from anephenix/dependabot/npm_and_yarn/types/node-25.3.0
+- Bump @types/node from 25.2.3 to 25.3.0
+- Merge pull request #130 from anephenix/dependabot/npm_and_yarn/types/node-25.2.3
+- Bump @types/node from 25.2.2 to 25.2.3
+- Merge pull request #129 from anephenix/dependabot/npm_and_yarn/types/node-25.2.2
+- Bump @types/node from 25.2.1 to 25.2.2
+- Merge pull request #128 from anephenix/dependabot/npm_and_yarn/types/node-25.2.1
+- Bump @types/node from 25.2.0 to 25.2.1
+- Merge pull request #127 from anephenix/dependabot/npm_and_yarn/types/node-25.2.0
+- Bump @types/node from 25.1.0 to 25.2.0
+- Merge pull request #126 from anephenix/dependabot/npm_and_yarn/types/node-25.1.0
+- Bump @types/node from 25.0.10 to 25.1.0
+- Merge pull request #123 from anephenix/dependabot/npm_and_yarn/types/node-25.0.10
+- Merge pull request #122 from anephenix/dependabot/npm_and_yarn/publint-0.3.17
+- Bump @types/node from 25.0.9 to 25.0.10
+- Bump publint from 0.3.16 to 0.3.17
+- Merge pull request #125 from anephenix/dependabot/npm_and_yarn/vitest-4.0.18
+- Merge pull request #124 from anephenix/dependabot/npm_and_yarn/prettier-3.8.1
+- Bump vitest from 4.0.17 to 4.0.18
+- Bump prettier from 3.8.0 to 3.8.1
+- Merge pull request #121 from anephenix/dependabot/npm_and_yarn/types/node-25.0.9
+- Bump @types/node from 25.0.8 to 25.0.9
+- Merge pull request #120 from anephenix/dependabot/npm_and_yarn/prettier-3.8.0
+- Bump prettier from 3.7.4 to 3.8.0
+- Merge pull request #119 from anephenix/dependabot/npm_and_yarn/types/node-25.0.8
+- Bump @types/node from 25.0.7 to 25.0.8
+- Merge pull request #118 from anephenix/dependabot/npm_and_yarn/types/node-25.0.7
+- Bump @types/node from 25.0.6 to 25.0.7
+- Merge pull request #117 from anephenix/dependabot/npm_and_yarn/types/node-25.0.6
+- Merge pull request #116 from anephenix/dependabot/npm_and_yarn/vitest-4.0.17
+- Bump @types/node from 25.0.3 to 25.0.6
+- Bump vitest from 4.0.16 to 4.0.17
+
 ### 0.1.12 - Sunday 4th January, 2026
 
 - Tweaks for new publish workflow
