@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest';
 import Measure from '../src';
-import { describe, it, expect } from 'vitest';
 
 describe('Measure', () => {
   describe('#record', () => {

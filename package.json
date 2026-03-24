@@ -1,85 +1,76 @@
 {
-	"version": "0.1.13",
-	"license": "MIT",
-	"main": "dist/index.js",
-	"type": "module",
-	"typings": "dist/index.d.ts",
-	"types": "dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist",
-		"README.md"
-	],
-	"engines": {
-		"node": ">=22"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/anephenix/measure.git"
-	},
-	"homepage": "https://github.com/anephenix/measure",
-	"bugs": {
-		"url": "https://github.com/anephenix/measure/issues"
-	},
-	"scripts": {
-		"analyze": "size-limit --why",
-		"build": "tsc --project tsconfig.json",
-		"check-prettier": "prettier src test --check",
-		"cover": "cross-env NODE_ENV=test npx nyc --reporter=lcov npm t",
-		"lint:package": "npx publint",
-		"prepare-patch-release": "npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",
-		"prettier": "prettier src test --write",
-		"publish-patch-release": "npm run prepare-patch-release && git push origin main && git push --tags",
-		"size": "size-limit",
-		"test": "cross-env NODE_ENV=test npx vitest --run",
-		"update-changelog": "node --experimental-strip-types scripts/update-changelog.ts",
-		"watch": "tsc --project tsconfig.json --watch",
-		"prepare": "husky"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run build && npm run prettier && npm run size && npm test"
-		}
-	},
-	"prettier": {
-		"printWidth": 80,
-		"semi": true,
-		"singleQuote": true,
-		"trailingComma": "es5"
-	},
-	"name": "@anephenix/measure",
-	"author": "Paul Jensen <paul@anephenix.com>",
-	"maintainers": [
-		{
-			"name": "Paul Jensen",
-			"email": "paul@anephenix.com"
-		}
-	],
-	"size-limit": [
-		{
-			"path": "dist/*.js",
-			"limit": "10 KB"
-		}
-	],
-	"devDependencies": {
-		"@size-limit/esbuild-why": "^12.0.0",
-		"@size-limit/preset-small-lib": "^12.0.0",
-		"@types/mocha": "^10.0.10",
-		"@types/node": "^25.5.0",
-		"cross-env": "^10.1.0",
-		"husky": "^9.1.7",
-		"mocha-lcov-reporter": "^1.3.0",
-		"nyc": "^18.0.0",
-		"prettier": "^3.8.1",
-		"publint": "^0.3.18",
-		"size-limit": "^12.0.0",
-		"tslib": "^2.8.1",
-		"typescript": "^5.9.3",
-		"vitest": "^4.1.1"
-	}
+  "version": "0.1.13",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "type": "module",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anephenix/measure.git"
+  },
+  "homepage": "https://github.com/anephenix/measure",
+  "bugs": {
+    "url": "https://github.com/anephenix/measure/issues"
+  },
+  "scripts": {
+    "analyze": "size-limit --why",
+    "build": "tsc --project tsconfig.json",
+    "cover": "cross-env NODE_ENV=test npx nyc --reporter=lcov npm t",
+    "format": "npx biome check . --write",
+    "lint": "npx biome check .",
+    "lint:package": "npx publint",
+    "prepare-patch-release": "npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",
+    "publish-patch-release": "npm run prepare-patch-release && git push origin main && git push --tags",
+    "size": "size-limit",
+    "test": "cross-env NODE_ENV=test npx vitest --run",
+    "update-changelog": "node --experimental-strip-types scripts/update-changelog.ts",
+    "watch": "tsc --project tsconfig.json --watch",
+    "prepare": "husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && npm run lint && npm run size && npm test"
+    }
+  },
+  "name": "@anephenix/measure",
+  "author": "Paul Jensen <paul@anephenix.com>",
+  "maintainers": [
+    {
+      "name": "Paul Jensen",
+      "email": "paul@anephenix.com"
+    }
+  ],
+  "size-limit": [
+    {
+      "path": "dist/*.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "2.4.8",
+    "@size-limit/esbuild-why": "^12.0.0",
+    "@size-limit/preset-small-lib": "^12.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.5.0",
+    "cross-env": "^10.1.0",
+    "husky": "^9.1.7",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^18.0.0",
+    "publint": "^0.3.18",
+    "size-limit": "^12.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1"
+  }
 }

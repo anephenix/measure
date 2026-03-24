@@ -81,7 +81,7 @@ class Measure {
     const findMostCounted = (a: [string, number]) => a[1] === occurrence;
     const convertToNumber = (a: [string, number]) => {
       const countAsString: string = a[0];
-      return Number.parseInt(countAsString);
+      return Number.parseInt(countAsString, 10);
     };
     return sortedCounts.filter(findMostCounted).map(convertToNumber);
   }
@@ -94,7 +94,7 @@ class Measure {
 
     // Loop through the recordings to count occurrences
     for (const recording of this.recordings) {
-      if (!Object.prototype.hasOwnProperty.call(counts, recording)) {
+      if (!Object.hasOwn(counts, recording)) {
         // Note the first occurrence
         counts[recording] = 1;
       } else {
