@@ -19,6 +19,15 @@ describe('Measure', () => {
   });
 
   describe('#mean', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.mean()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -39,6 +48,15 @@ describe('Measure', () => {
   });
 
   describe('#median', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.median()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -70,6 +88,15 @@ describe('Measure', () => {
   });
 
   describe('#mode', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.mode()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -101,6 +128,15 @@ describe('Measure', () => {
   });
 
   describe('#counts', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.counts()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     it('should return an object with occurrences counts for the values', () => {
       const measure = new Measure();
       const values = [1, 2, 2, 3, 3, 3, 4, 5];
@@ -118,6 +154,15 @@ describe('Measure', () => {
   });
 
   describe('#variance', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.variance()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -149,6 +194,15 @@ describe('Measure', () => {
   });
 
   describe('#stdev', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.stdev()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -180,6 +234,15 @@ describe('Measure', () => {
   });
 
   describe('#zscore', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.zscore(5)).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     describe('when there are no recordings yet', () => {
       it('should return null', () => {
         const measure = new Measure();
@@ -201,6 +264,15 @@ describe('Measure', () => {
   });
 
   describe('#simpleMovingAverage', () => {
+    describe('when the type is date', () => {
+      it('should throw an error', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(() => measure.simpleMovingAverage()).toThrow(
+          'This method cannot be called on a date Measure instance'
+        );
+      });
+    });
+
     it('should return an empty array when there are no recordings', () => {
       const measure = new Measure();
       expect(measure.simpleMovingAverage()).toEqual([]);
@@ -230,6 +302,82 @@ describe('Measure', () => {
         measure.record(v);
       }
       expect(measure.simpleMovingAverage(5)).toEqual([10, 15]);
+    });
+  });
+
+  describe('#countBy', () => {
+    // Three dates used across all unit tests:
+    // d1: 2024-01-15 10:30:45.123  (month=0, date=15, dayOfWeek=1/Mon, hour=10, min=30, sec=45, ms=123)
+    // d2: 2024-03-20 14:00:00.000  (month=2, date=20, dayOfWeek=3/Wed, hour=14, min=0,  sec=0,  ms=0)
+    // d3: 2025-01-15 10:45:45.123  (month=0, date=15, dayOfWeek=3/Wed, hour=10, min=45, sec=45, ms=123)
+    const d1 = new Date(2024, 0, 15, 10, 30, 45, 123);
+    const d2 = new Date(2024, 2, 20, 14, 0, 0, 0);
+    const d3 = new Date(2025, 0, 15, 10, 45, 45, 123);
+
+    describe('when there are no recordings', () => {
+      it('should return null', () => {
+        const measure = new Measure({ type: 'date' });
+        expect(measure.countBy('year')).toBeNull();
+      });
+    });
+
+    describe('when recordings contain no Date objects', () => {
+      it('should return null', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record(42);
+        expect(measure.countBy('year')).toBeNull();
+      });
+    });
+
+    describe('when there are Date recordings', () => {
+      it('should count by year', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('year')).toEqual({ '2024': 2, '2025': 1 });
+      });
+
+      it('should count by month', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('month')).toEqual({ '0': 2, '2': 1 });
+      });
+
+      it('should count by date', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('date')).toEqual({ '15': 2, '20': 1 });
+      });
+
+      it('should count by day of week', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        // d1 = Monday (1), d2 = Wednesday (3), d3 = Wednesday (3)
+        expect(measure.countBy('dayOfWeek')).toEqual({ '1': 1, '3': 2 });
+      });
+
+      it('should count by hour', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('hour')).toEqual({ '10': 2, '14': 1 });
+      });
+
+      it('should count by minute', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('minute')).toEqual({ '30': 1, '0': 1, '45': 1 });
+      });
+
+      it('should count by second', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('second')).toEqual({ '45': 2, '0': 1 });
+      });
+
+      it('should count by millisecond', () => {
+        const measure = new Measure({ type: 'date' });
+        measure.record([d1, d2, d3]);
+        expect(measure.countBy('millisecond')).toEqual({ '123': 2, '0': 1 });
+      });
     });
   });
 });

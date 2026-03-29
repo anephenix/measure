@@ -20,7 +20,7 @@ npm i @anephenix/measure
 ```javascript
 // Setting up your Measure instance
 const measure = new Measure({
-  // Can be either 'sample' or 'population' - default value is sample
+  // Can be 'sample', 'population', or 'date' - default value is sample
   type: 'sample',
 });
 
@@ -54,6 +54,22 @@ measure.zscore(3);
 
 // Calculate the simple moving average over the last N recordings
 measure.simpleMovingAverage(3); // Returns the average of the last 3 recordings
+
+// Measuring dates
+// Use type 'date' to record Date objects and analyse them by time unit
+const dateMeasure = new Measure({ type: 'date' });
+dateMeasure.record(new Date('2024-01-15T10:30:45'));
+dateMeasure.record(new Date('2024-03-20T14:00:00'));
+dateMeasure.record(new Date('2025-01-15T10:45:00'));
+
+// Count recordings by a date unit - returns an object of unit-value → count
+// Supported units: 'year', 'month', 'date', 'dayOfWeek', 'hour', 'minute', 'second', 'millisecond'
+// month uses 0-based indexing (0 = January, 11 = December)
+// dayOfWeek uses 0-based indexing (0 = Sunday, 6 = Saturday)
+dateMeasure.countBy('year');      // { '2024': 2, '2025': 1 }
+dateMeasure.countBy('month');     // { '0': 2, '2': 1 }
+dateMeasure.countBy('dayOfWeek'); // { '1': 1, '3': 2 }
+dateMeasure.countBy('hour');      // { '10': 2, '14': 1 }
 ```
 
 ### Tests

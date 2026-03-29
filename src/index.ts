@@ -1,4 +1,4 @@
-import type { MeasureType, ValueType } from './global.js';
+import type { DateUnit, MeasureType, ValueType } from './global.js';
 
 // Interfaces
 
@@ -14,11 +14,21 @@ interface CountObject {
 
 class Measure {
   type: MeasureType;
-  recordings: Array<number>;
+  recordings: Array<number | Date>;
 
   constructor(props: MeasureProps = {}) {
     this.type = props.type || 'sample';
     this.recordings = []; // This is good for in-memory storage, and when data sizes are small. Perhaps in future a database option would be good, like sqlite as a starter.
+  }
+
+  // Throws if this instance is configured for date recordings
+  private get numericRecordings(): number[] {
+    if (this.type === 'date') {
+      throw new Error(
+        'This method cannot be called on a date Measure instance'
+      );
+    }
+    return this.recordings as number[];
   }
 
   // Adds the recording to the list of recordings
@@ -35,10 +45,10 @@ class Measure {
     or returns null if there are no recordings
   */
   mean(): null | number {
-    if (this.recordings.length === 0) return null;
-    const count: number = this.recordings.length;
+    if (this.numericRecordings.length === 0) return null;
+    const count: number = this.numericRecordings.length;
     const sumFunction = (total: number, recording: number) => total + recording;
-    const sum: number = this.recordings.reduce(sumFunction, 0);
+    const sum: number = this.numericRecordings.reduce(sumFunction, 0);
     return sum / count;
   }
 
@@ -47,11 +57,12 @@ class Measure {
     or returns null if there are no recordings
   */
   median(): null | number {
-    const length: number = this.recordings.length;
+    const length: number = this.numericRecordings.length;
     if (length === 0) return null;
     const sortFunction = (a: number, b: number) => a - b;
     // Sort the recording in numerical order
-    const orderedRecordings: Array<number> = this.recordings.sort(sortFunction);
+    const orderedRecordings: Array<number> =
+      this.numericRecordings.sort(sortFunction);
     // If an even number, calculate the average of the 2 middle numbers
     if (length % 2 === 0) {
       const firstNumber: number = orderedRecordings[length / 2 - 1];
@@ -67,7 +78,7 @@ class Measure {
     or returns null if there are no recordings
   */
   mode(): null | Array<number> {
-    if (this.recordings.length === 0) return null;
+    if (this.numericRecordings.length === 0) return null;
     // Used to count how many times each number occurs.
     const counts = this.counts();
 
@@ -93,7 +104,7 @@ class Measure {
     const counts: CountObject = {};
 
     // Loop through the recordings to count occurrences
-    for (const recording of this.recordings) {
+    for (const recording of this.numericRecordings) {
       if (!Object.hasOwn(counts, recording)) {
         // Note the first occurrence
         counts[recording] = 1;
@@ -108,7 +119,7 @@ class Measure {
   variance(): null | number {
     const mean: null | number = this.mean();
     if (mean === null) return null;
-    const deviations = this.recordings.map((recording: number) => {
+    const deviations = this.numericRecordings.map((recording: number) => {
       const deviation = recording - mean;
       return deviation * deviation;
     });
@@ -116,8 +127,8 @@ class Measure {
     const sumOfDeviations = deviations.reduce(sumFunction, 0);
     const divisor =
       this.type === 'population'
-        ? this.recordings.length
-        : this.recordings.length - 1;
+        ? this.numericRecordings.length
+        : this.numericRecordings.length - 1;
     return sumOfDeviations / divisor;
   }
 
@@ -134,7 +145,7 @@ class Measure {
     Returns the standard score of a value
   */
   zscore(value: number): null | number {
-    if (this.recordings.length === 0) return null;
+    if (this.numericRecordings.length === 0) return null;
     const mean = this.mean();
     const stdev = this.stdev();
     if (!mean || !stdev) return null;
@@ -148,17 +159,63 @@ class Measure {
     If windowSize is provided, calculates the moving average for that window.
   */
   simpleMovingAverage(windowSize?: number): number[] {
-    if (this.recordings.length === 0) return [];
+    if (this.numericRecordings.length === 0) return [];
     const result: number[] = [];
-    const n = this.recordings.length;
+    const n = this.numericRecordings.length;
     const w = windowSize && windowSize > 0 ? windowSize : n;
     for (let i = 0; i < n; i++) {
       const start = Math.max(0, i - w + 1);
-      const window = this.recordings.slice(start, i + 1);
+      const window = this.numericRecordings.slice(start, i + 1);
       const sum = window.reduce((acc, val) => acc + val, 0);
       result.push(sum / window.length);
     }
     return result;
+  }
+
+  /*
+    Returns an object counting how many recordings fall into each value
+    of the given date unit (year, month, date, dayOfWeek, hour, minute,
+    second, or millisecond). Only Date recordings are counted.
+    Returns null if there are no Date recordings.
+  */
+  countBy(unit: DateUnit): null | CountObject {
+    const dateRecordings = this.recordings.filter(
+      (r): r is Date => r instanceof Date
+    );
+    if (dateRecordings.length === 0) return null;
+    const counts: CountObject = {};
+    for (const date of dateRecordings) {
+      let key: number;
+      switch (unit) {
+        case 'year':
+          key = date.getFullYear();
+          break;
+        case 'month':
+          key = date.getMonth();
+          break;
+        case 'date':
+          key = date.getDate();
+          break;
+        case 'dayOfWeek':
+          key = date.getDay();
+          break;
+        case 'hour':
+          key = date.getHours();
+          break;
+        case 'minute':
+          key = date.getMinutes();
+          break;
+        case 'second':
+          key = date.getSeconds();
+          break;
+        case 'millisecond':
+          key = date.getMilliseconds();
+          break;
+      }
+      const k = String(key);
+      counts[k] = (counts[k] ?? 0) + 1;
+    }
+    return counts;
   }
 }
 
