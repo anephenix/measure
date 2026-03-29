@@ -1,5 +1,21 @@
 # Changelog
 
+### 0.1.14 - Sunday 29th March, 2026
+
+- Added support for measuring dates and the frequency on which the recordings occur on a particular date/time-specific measure
+- Merge pull request #149 from anephenix/dependabot/npm_and_yarn/vitest-4.1.2
+- Bump vitest from 4.1.1 to 4.1.2
+- Merge pull request #148 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-3f9ee708be
+- Bump picomatch in the npm_and_yarn group across 1 directory
+- Merge pull request #147 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.9
+- Bump @biomejs/biome from 2.4.8 to 2.4.9
+- Merge pull request #146 from anephenix/dependabot/npm_and_yarn/typescript-6.0.2
+- Normalize line endings to LF
+- Fixed tsconfig issue, and added biome and removed prettier
+- Bump typescript from 5.9.3 to 6.0.2
+- Merge pull request #145 from anephenix/dependabot/npm_and_yarn/vitest-4.1.1
+- Bump vitest from 4.1.0 to 4.1.1
+
 ### 0.1.13 - Saturday 21st March, 2026
 
 - Updated dependencies
