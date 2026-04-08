@@ -1,5 +1,16 @@
 # Changelog
 
+### 0.1.17 - Wednesday 8th April, 2026
+
+- Updated biome schema
+- Updated dependencies
+- Merge pull request #153 from anephenix/dependabot/npm_and_yarn/vitest-4.1.3
+- Bump vitest from 4.1.2 to 4.1.3
+- Merge pull request #151 from anephenix/dependabot/npm_and_yarn/types/node-25.5.2
+- Bump @types/node from 25.5.0 to 25.5.2
+- Merge pull request #150 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.10
+- Bump @biomejs/biome from 2.4.9 to 2.4.10
+
 ### 0.1.14 - Sunday 29th March, 2026
 
 - Added support for measuring dates and the frequency on which the recordings occur on a particular date/time-specific measure
