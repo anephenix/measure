@@ -58,7 +58,7 @@
     }
   ],
   "devDependencies": {
-    "@biomejs/biome": "2.4.11",
+    "@biomejs/biome": "2.4.12",
     "@size-limit/esbuild-why": "^12.1.0",
     "@size-limit/preset-small-lib": "^12.1.0",
     "@types/mocha": "^10.0.10",
