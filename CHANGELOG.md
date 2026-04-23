@@ -1,5 +1,271 @@
 # Changelog
 
+### 0.1.18 - Thursday 23rd April, 2026
+
+- Merge pull request #163 from anephenix/feature/target
+- Added support for setting a target for a measure instance, and being able to see if a target is met and what status it has
+- Removed nyc, mocha-lcov-reporter, and @types/mocha from the dependencies for the library
+- Merge pull request #162 from anephenix/dependabot/npm_and_yarn/vitest-4.1.5
+- Bump vitest from 4.1.4 to 4.1.5
+- Updated biome schema
+- Updated dependencies
+- Merge pull request #161 from anephenix/dependabot/npm_and_yarn/typescript-6.0.3
+- Bump typescript from 6.0.2 to 6.0.3
+- Merge pull request #160 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.12
+- Bump @biomejs/biome from 2.4.11 to 2.4.12
+- Merge pull request #157 from anephenix/dependabot/npm_and_yarn/size-limit/esbuild-why-12.1.0
+- Bump @size-limit/esbuild-why from 12.0.1 to 12.1.0
+- Merge pull request #159 from anephenix/dependabot/npm_and_yarn/size-limit/preset-small-lib-12.1.0
+- Bump @size-limit/preset-small-lib from 12.0.1 to 12.1.0
+- Merge pull request #156 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.11
+- Merge pull request #155 from anephenix/dependabot/npm_and_yarn/types/node-25.6.0
+- Bump @biomejs/biome from 2.4.10 to 2.4.11
+- Bump @types/node from 25.5.2 to 25.6.0
+- Merge pull request #154 from anephenix/dependabot/npm_and_yarn/vitest-4.1.4
+- Bump vitest from 4.1.3 to 4.1.4
+- 0.1.17
+- Updated changelog
+- Updated biome schema
+- Updated dependencies
+- Merge pull request #153 from anephenix/dependabot/npm_and_yarn/vitest-4.1.3
+- Bump vitest from 4.1.2 to 4.1.3
+- Merge pull request #151 from anephenix/dependabot/npm_and_yarn/types/node-25.5.2
+- Bump @types/node from 25.5.0 to 25.5.2
+- Merge pull request #150 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.10
+- Bump @biomejs/biome from 2.4.9 to 2.4.10
+- 0.1.16
+- Updated changelog
+- Added support for measuring dates and the frequency on which the recordings occur on a particular date/time-specific measure
+- Merge pull request #149 from anephenix/dependabot/npm_and_yarn/vitest-4.1.2
+- Bump vitest from 4.1.1 to 4.1.2
+- Merge pull request #148 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-3f9ee708be
+- Bump picomatch in the npm_and_yarn group across 1 directory
+- Merge pull request #147 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.9
+- Bump @biomejs/biome from 2.4.8 to 2.4.9
+- Merge pull request #146 from anephenix/dependabot/npm_and_yarn/typescript-6.0.2
+- Normalize line endings to LF
+- Fixed tsconfig issue, and added biome and removed prettier
+- Bump typescript from 5.9.3 to 6.0.2
+- Merge pull request #145 from anephenix/dependabot/npm_and_yarn/vitest-4.1.1
+- Bump vitest from 4.1.0 to 4.1.1
+- 0.1.13
+- Updated changelog
+- Updated dependencies
+- Merge pull request #144 from anephenix/dependabot/npm_and_yarn/types/node-25.5.0
+- Bump @types/node from 25.4.0 to 25.5.0
+- Merge pull request #143 from anephenix/dependabot/npm_and_yarn/vitest-4.1.0
+- Bump vitest from 4.0.18 to 4.1.0
+- Merge pull request #142 from anephenix/dependabot/npm_and_yarn/types/node-25.4.0
+- Bump @types/node from 25.3.5 to 25.4.0
+- Updated the workflows to use the latest version of checkout and setup-node actions
+- Updated dependencies
+- Merge pull request #138 from anephenix/dependabot/npm_and_yarn/types/node-25.3.5
+- Bump @types/node from 25.3.3 to 25.3.5
+- Merge pull request #136 from anephenix/dependabot/npm_and_yarn/types/node-25.3.3
+- Merge pull request #137 from anephenix/dependabot/npm_and_yarn/publint-0.3.18
+- Bump publint from 0.3.17 to 0.3.18
+- Bump @types/node from 25.3.2 to 25.3.3
+- Merge pull request #135 from anephenix/dependabot/npm_and_yarn/types/node-25.3.2
+- Bump @types/node from 25.3.1 to 25.3.2
+- Merge pull request #132 from anephenix/dependabot/npm_and_yarn/nyc-18.0.0
+- Merge pull request #134 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-b2936519f3
+- Bump rollup in the npm_and_yarn group across 1 directory
+- Merge pull request #133 from anephenix/dependabot/npm_and_yarn/types/node-25.3.1
+- Bump @types/node from 25.3.0 to 25.3.1
+- Bump nyc from 17.1.0 to 18.0.0
+- Merge pull request #131 from anephenix/dependabot/npm_and_yarn/types/node-25.3.0
+- Bump @types/node from 25.2.3 to 25.3.0
+- Merge pull request #130 from anephenix/dependabot/npm_and_yarn/types/node-25.2.3
+- Bump @types/node from 25.2.2 to 25.2.3
+- Merge pull request #129 from anephenix/dependabot/npm_and_yarn/types/node-25.2.2
+- Bump @types/node from 25.2.1 to 25.2.2
+- Merge pull request #128 from anephenix/dependabot/npm_and_yarn/types/node-25.2.1
+- Bump @types/node from 25.2.0 to 25.2.1
+- Merge pull request #127 from anephenix/dependabot/npm_and_yarn/types/node-25.2.0
+- Bump @types/node from 25.1.0 to 25.2.0
+- Merge pull request #126 from anephenix/dependabot/npm_and_yarn/types/node-25.1.0
+- Bump @types/node from 25.0.10 to 25.1.0
+- Merge pull request #123 from anephenix/dependabot/npm_and_yarn/types/node-25.0.10
+- Merge pull request #122 from anephenix/dependabot/npm_and_yarn/publint-0.3.17
+- Bump @types/node from 25.0.9 to 25.0.10
+- Bump publint from 0.3.16 to 0.3.17
+- Merge pull request #125 from anephenix/dependabot/npm_and_yarn/vitest-4.0.18
+- Merge pull request #124 from anephenix/dependabot/npm_and_yarn/prettier-3.8.1
+- Bump vitest from 4.0.17 to 4.0.18
+- Bump prettier from 3.8.0 to 3.8.1
+- Merge pull request #121 from anephenix/dependabot/npm_and_yarn/types/node-25.0.9
+- Bump @types/node from 25.0.8 to 25.0.9
+- Merge pull request #120 from anephenix/dependabot/npm_and_yarn/prettier-3.8.0
+- Bump prettier from 3.7.4 to 3.8.0
+- Merge pull request #119 from anephenix/dependabot/npm_and_yarn/types/node-25.0.8
+- Bump @types/node from 25.0.7 to 25.0.8
+- Merge pull request #118 from anephenix/dependabot/npm_and_yarn/types/node-25.0.7
+- Bump @types/node from 25.0.6 to 25.0.7
+- Merge pull request #117 from anephenix/dependabot/npm_and_yarn/types/node-25.0.6
+- Merge pull request #116 from anephenix/dependabot/npm_and_yarn/vitest-4.0.17
+- Bump @types/node from 25.0.3 to 25.0.6
+- Bump vitest from 4.0.16 to 4.0.17
+- 0.1.12
+- Updated changelog
+- Tweaks for new publish workflow
+- Updated dependencies
+- Merge pull request #115 from anephenix/dependabot/npm_and_yarn/vitest-4.0.16
+- Merge pull request #114 from anephenix/dependabot/npm_and_yarn/types/node-25.0.3
+- Bump vitest from 4.0.15 to 4.0.16
+- Bump @types/node from 25.0.2 to 25.0.3
+- Merge pull request #113 from anephenix/dependabot/npm_and_yarn/types/node-25.0.2
+- Bump @types/node from 25.0.1 to 25.0.2
+- Merge pull request #112 from anephenix/dependabot/npm_and_yarn/types/node-25.0.1
+- Bump @types/node from 25.0.0 to 25.0.1
+- Merge pull request #111 from anephenix/dependabot/npm_and_yarn/types/node-25.0.0
+- Bump @types/node from 24.10.2 to 25.0.0
+- Merge pull request #110 from anephenix/dependabot/npm_and_yarn/publint-0.3.16
+- Bump publint from 0.3.15 to 0.3.16
+- Merge pull request #109 from anephenix/dependabot/npm_and_yarn/types/node-24.10.2
+- Bump @types/node from 24.10.1 to 24.10.2
+- 0.1.11
+- Updated changelog
+- Merge branch 'main' of github.com:anephenix/measure
+- Updated license
+- Merge pull request #108 from anephenix/dependabot/npm_and_yarn/prettier-3.7.4
+- Merge pull request #107 from anephenix/dependabot/npm_and_yarn/vitest-4.0.15
+- Bump prettier from 3.7.3 to 3.7.4
+- Bump vitest from 4.0.14 to 4.0.15
+- Updated dependencies
+- Updated dependencies
+- Merge pull request #103 from anephenix/dependabot/npm_and_yarn/prettier-3.7.3
+- Bump prettier from 3.7.1 to 3.7.3
+- Merge pull request #102 from anephenix/dependabot/npm_and_yarn/prettier-3.7.1
+- Bump prettier from 3.6.2 to 3.7.1
+- Merge pull request #101 from anephenix/dependabot/npm_and_yarn/vitest-4.0.14
+- Bump vitest from 4.0.13 to 4.0.14
+- Merge pull request #100 from anephenix/dependabot/npm_and_yarn/vitest-4.0.13
+- Bump vitest from 4.0.12 to 4.0.13
+- Merge pull request #99 from anephenix/dependabot/npm_and_yarn/vitest-4.0.12
+- Bump vitest from 4.0.10 to 4.0.12
+- Merge pull request #98 from anephenix/dependabot/npm_and_yarn/vitest-4.0.10
+- Bump vitest from 4.0.9 to 4.0.10
+- Merge pull request #97 from anephenix/dependabot/npm_and_yarn/vitest-4.0.9
+- Bump vitest from 4.0.8 to 4.0.9
+- Merge pull request #96 from anephenix/dependabot/npm_and_yarn/types/node-24.10.1
+- Bump @types/node from 24.10.0 to 24.10.1
+- Merge pull request #95 from anephenix/dependabot/npm_and_yarn/vitest-4.0.8
+- Bump vitest from 4.0.7 to 4.0.8
+- Merge pull request #94 from anephenix/dependabot/npm_and_yarn/vitest-4.0.7
+- Bump vitest from 4.0.6 to 4.0.7
+- Merge pull request #93 from anephenix/dependabot/npm_and_yarn/types/node-24.10.0
+- Bump @types/node from 24.9.2 to 24.10.0
+- Merge pull request #92 from anephenix/dependabot/npm_and_yarn/vitest-4.0.6
+- Bump vitest from 4.0.5 to 4.0.6
+- Merge pull request #90 from anephenix/dependabot/npm_and_yarn/vitest-4.0.5
+- Merge pull request #91 from anephenix/dependabot/npm_and_yarn/types/node-24.9.2
+- Bump @types/node from 24.9.1 to 24.9.2
+- Bump vitest from 4.0.4 to 4.0.5
+- Merge pull request #89 from anephenix/dependabot/npm_and_yarn/vitest-4.0.4
+- Bump vitest from 4.0.3 to 4.0.4
+- Merge pull request #88 from anephenix/dependabot/npm_and_yarn/vitest-4.0.3
+- Bump vitest from 4.0.1 to 4.0.3
+- Merge pull request #87 from anephenix/dependabot/npm_and_yarn/vitest-4.0.1
+- Bump vitest from 4.0.0 to 4.0.1
+- Merge pull request #86 from anephenix/dependabot/npm_and_yarn/vitest-4.0.0
+- Bump vitest from 3.2.4 to 4.0.0
+- Merge pull request #85 from anephenix/dependabot/npm_and_yarn/types/node-24.9.1
+- Merge pull request #84 from anephenix/dependabot/npm_and_yarn/npm_and_yarn-fd296dbd23
+- Merge pull request #83 from anephenix/dependabot/npm_and_yarn/publint-0.3.15
+- Bump @types/node from 24.8.1 to 24.9.1
+- Bump vite in the npm_and_yarn group across 1 directory
+- Bump publint from 0.3.14 to 0.3.15
+- Merge pull request #82 from anephenix/dependabot/npm_and_yarn/types/node-24.8.1
+- Bump @types/node from 24.8.0 to 24.8.1
+- Merge pull request #81 from anephenix/dependabot/npm_and_yarn/types/node-24.8.0
+- Bump @types/node from 24.7.2 to 24.8.0
+- Merge pull request #80 from anephenix/dependabot/npm_and_yarn/types/node-24.7.2
+- Bump @types/node from 24.7.1 to 24.7.2
+- Merge pull request #79 from anephenix/dependabot/npm_and_yarn/types/node-24.7.1
+- Bump @types/node from 24.7.0 to 24.7.1
+- 0.1.10
+- Updated changelog
+- Removed ts-node dependency and using Node.js native TypeScript support instead
+- Tweaks
+- Husky init
+- Added publint to verify the package.json, and some other changes
+- Merge pull request #78 from anephenix/dependabot/npm_and_yarn/types/node-24.7.0
+- Bump @types/node from 24.6.2 to 24.7.0
+- 0.1.9
+- Updated changelog
+- Updated the package-lock.json file
+- Merge pull request #77 from anephenix/dependabot/npm_and_yarn/mocha-11.7.4
+- Bump mocha from 11.7.3 to 11.7.4
+- Merge pull request #76 from anephenix/dependabot/npm_and_yarn/types/node-24.6.2
+- Bump @types/node from 24.6.0 to 24.6.2
+- Merge pull request #75 from anephenix/dependabot/npm_and_yarn/typescript-5.9.3
+- Bump typescript from 5.9.2 to 5.9.3
+- Merge pull request #72 from anephenix/dependabot/npm_and_yarn/cross-env-10.1.0
+- Bump cross-env from 10.0.0 to 10.1.0
+- Merge pull request #73 from anephenix/dependabot/npm_and_yarn/mocha-11.7.3
+- Merge pull request #71 from anephenix/dependabot/npm_and_yarn/types/node-24.6.0
+- Bump mocha from 11.7.2 to 11.7.3
+- Bump @types/node from 24.5.2 to 24.6.0
+- Merge pull request #70 from anephenix/dependabot/npm_and_yarn/types/node-24.5.2
+- Bump @types/node from 24.5.1 to 24.5.2
+- Merge pull request #69 from anephenix/dependabot/npm_and_yarn/types/node-24.5.1
+- Bump @types/node from 24.5.0 to 24.5.1
+- Merge pull request #68 from anephenix/dependabot/npm_and_yarn/types/node-24.5.0
+- Bump @types/node from 24.4.0 to 24.5.0
+- Merge pull request #67 from anephenix/dependabot/npm_and_yarn/types/node-24.4.0
+- Bump @types/node from 24.3.1 to 24.4.0
+- Merge pull request #66 from anephenix/dependabot/npm_and_yarn/types/node-24.3.1
+- Bump @types/node from 24.3.0 to 24.3.1
+- Merge pull request #65 from anephenix/dependabot/npm_and_yarn/mocha-11.7.2
+- Bump mocha from 11.7.1 to 11.7.2
+- Merge pull request #64 from anephenix/dependabot/npm_and_yarn/types/node-24.3.0
+- Bump @types/node from 24.2.1 to 24.3.0
+- Merge pull request #63 from anephenix/dependabot/npm_and_yarn/types/node-24.2.1
+- Bump @types/node from 24.2.0 to 24.2.1
+- Merge pull request #62 from anephenix/dependabot/npm_and_yarn/types/node-24.2.0
+- Bump @types/node from 24.1.0 to 24.2.0
+- Merge pull request #61 from anephenix/dependabot/npm_and_yarn/typescript-5.9.2
+- Bump typescript from 5.8.3 to 5.9.2
+- Merge pull request #60 from anephenix/dependabot/npm_and_yarn/cross-env-10.0.0
+- Bump cross-env from 7.0.3 to 10.0.0
+- Small fix for some invalid YAML for one of the GitHub workflow files
+- Merge pull request #59 from anephenix/dependabot/npm_and_yarn/types/node-24.1.0
+- Bump @types/node from 24.0.15 to 24.1.0
+- Merge pull request #58 from anephenix/dependabot/npm_and_yarn/types/node-24.0.15
+- Bump @types/node from 24.0.14 to 24.0.15
+- Merge pull request #57 from anephenix/dependabot/npm_and_yarn/types/node-24.0.14
+- Bump @types/node from 24.0.13 to 24.0.14
+- Merge pull request #56 from anephenix/dependabot/npm_and_yarn/types/node-24.0.13
+- Bump @types/node from 24.0.12 to 24.0.13
+- Merge pull request #55 from anephenix/dependabot/npm_and_yarn/types/node-24.0.12
+- Bump @types/node from 24.0.10 to 24.0.12
+- Updated dependencies
+- Merge pull request #54 from anephenix/dependabot/npm_and_yarn/types/node-24.0.10
+- Bump @types/node from 24.0.8 to 24.0.10
+- Merge pull request #53 from anephenix/dependabot/npm_and_yarn/types/node-24.0.8
+- Bump @types/node from 24.0.7 to 24.0.8
+- Merge pull request #52 from anephenix/dependabot/npm_and_yarn/types/node-24.0.7
+- Bump @types/node from 24.0.4 to 24.0.7
+- Merge pull request #51 from anephenix/dependabot/npm_and_yarn/prettier-3.6.2
+- Bump prettier from 3.6.1 to 3.6.2
+- Merge pull request #50 from anephenix/dependabot/npm_and_yarn/prettier-3.6.1
+- Merge pull request #49 from anephenix/dependabot/npm_and_yarn/types/node-24.0.4
+- Bump prettier from 3.6.0 to 3.6.1
+- Bump @types/node from 24.0.3 to 24.0.4
+- Merge pull request #48 from anephenix/dependabot/npm_and_yarn/mocha-11.7.1
+- Bump mocha from 11.7.0 to 11.7.1
+- Merge pull request #47 from anephenix/dependabot/npm_and_yarn/prettier-3.6.0
+- Bump prettier from 3.5.3 to 3.6.0
+- Merge pull request #46 from anephenix/dependabot/npm_and_yarn/mocha-11.7.0
+- Bump mocha from 11.6.0 to 11.7.0
+- Merge pull request #45 from anephenix/dependabot/npm_and_yarn/types/node-24.0.3
+- Bump @types/node from 24.0.1 to 24.0.3
+- Removed CodeClimate and updated dependencies
+- Merge pull request #44 from anephenix/dependabot/npm_and_yarn/types/node-24.0.1
+- Bump @types/node from 24.0.0 to 24.0.1
+- Merge pull request #43 from anephenix/dependabot/npm_and_yarn/types/node-24.0.0
+- Bump @types/node from 22.15.30 to 24.0.0
+
 ### 0.1.17 - Wednesday 8th April, 2026
 
 - Updated biome schema
