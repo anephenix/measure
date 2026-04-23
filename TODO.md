@@ -13,6 +13,6 @@
 - [x] - second
 - [x] - millisecond
 
-- [ ] Have a way to define a target value to achieve, such as:
-- [ ] - An average (mean) above 80 (whatever 80 is in relation to)
-- [ ] - And whether that target has been achieved
+- [x] Have a way to define a target value to achieve, such as:
+- [x] - An average (mean) above 80 (whatever 80 is in relation to)
+- [x] - And whether that target has been achieved

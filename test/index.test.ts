@@ -305,6 +305,249 @@ describe('Measure', () => {
     });
   });
 
+  describe('#targetAchieved and #targetStatus', () => {
+    // Base dataset: [72, 85, 91, 78, 88]
+    // mean=82.8, median=85, mode=[72,78,85,88,91], variance=57.7, stdev≈7.596
+    const baseValues = [72, 85, 91, 78, 88];
+
+    describe('when no target is defined', () => {
+      it('targetAchieved should throw', () => {
+        const measure = new Measure();
+        expect(() => measure.targetAchieved()).toThrow('No target defined');
+      });
+
+      it('targetStatus should throw', () => {
+        const measure = new Measure();
+        expect(() => measure.targetStatus()).toThrow('No target defined');
+      });
+    });
+
+    describe('when there are no recordings yet', () => {
+      it('targetAchieved should return null', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>', value: 80 },
+        });
+        expect(measure.targetAchieved()).toBeNull();
+      });
+
+      it('targetStatus should return achieved: null', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>', value: 80 },
+        });
+        expect(measure.targetStatus()).toEqual({
+          target: { stat: 'mean', operator: '>', value: 80 },
+          actual: null,
+          achieved: null,
+        });
+      });
+    });
+
+    describe('operators (tested against mean)', () => {
+      it('> returns true when stat exceeds the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>', value: 80 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('> returns false when stat does not exceed the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>', value: 90 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('< returns true when stat is below the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '<', value: 90 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('< returns false when stat is not below the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '<', value: 80 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('>= returns true when stat equals the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>=', value: 82.8 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('>= returns true when stat exceeds the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>=', value: 80 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('>= returns false when stat is below the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>=', value: 90 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('<= returns true when stat equals the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '<=', value: 82.8 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('<= returns true when stat is below the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '<=', value: 90 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('<= returns false when stat exceeds the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '<=', value: 80 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('= returns true when stat exactly equals the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '=', value: 82.8 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('= returns false when stat does not equal the target value', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '=', value: 80 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+    });
+
+    describe('stats', () => {
+      it('mean: achieved when mean satisfies the target', () => {
+        const measure = new Measure({
+          target: { stat: 'mean', operator: '>', value: 80 },
+        });
+        measure.record(baseValues); // mean=82.8
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('median: achieved when median satisfies the target', () => {
+        // [72,78,85,88,91] sorted → median=85
+        const measure = new Measure({
+          target: { stat: 'median', operator: '>=', value: 85 },
+        });
+        measure.record(baseValues);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('mode: achieved with = when the target value is in the mode array', () => {
+        // [1,2,2,3,3,3] → mode=[3]
+        const measure = new Measure({
+          target: { stat: 'mode', operator: '=', value: 3 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3]);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('mode: not achieved with = when the target value is not in the mode array', () => {
+        const measure = new Measure({
+          target: { stat: 'mode', operator: '=', value: 2 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3]);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('mode: achieved with > when all mode values satisfy the target', () => {
+        // mode=[3], target > 2 → true
+        const measure = new Measure({
+          target: { stat: 'mode', operator: '>', value: 2 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3]);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('variance: achieved when variance satisfies the target', () => {
+        // [1,2,2,3,3,3,4,5] sample variance ≈ 1.5536
+        const measure = new Measure({
+          target: { stat: 'variance', operator: '<', value: 2 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3, 4, 5]);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('stdev: achieved when stdev satisfies the target', () => {
+        // [1,2,2,3,3,3,4,5] sample stdev ≈ 1.2464
+        const measure = new Measure({
+          target: { stat: 'stdev', operator: '<', value: 2 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3, 4, 5]);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('zscore: achieved when zscore of the input satisfies the target', () => {
+        // [1,2,2,3,3,3,4,5] zscore(4) ≈ 0.9026
+        const measure = new Measure({
+          target: { stat: 'zscore', operator: '>', value: 0.5, input: 4 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3, 4, 5]);
+        expect(measure.targetAchieved()).toBe(true);
+      });
+
+      it('zscore: not achieved when zscore of the input does not satisfy the target', () => {
+        const measure = new Measure({
+          target: { stat: 'zscore', operator: '>', value: 1.5, input: 4 },
+        });
+        measure.record([1, 2, 2, 3, 3, 3, 4, 5]);
+        expect(measure.targetAchieved()).toBe(false);
+      });
+
+      it('zscore: throws when no input is provided', () => {
+        const measure = new Measure({
+          target: { stat: 'zscore', operator: '>', value: 0.5 },
+        });
+        measure.record([1, 2, 3]);
+        expect(() => measure.targetAchieved()).toThrow(
+          'Target with stat "zscore" requires an input value'
+        );
+      });
+    });
+
+    describe('#targetStatus', () => {
+      it('returns the full status object including target, actual, and achieved', () => {
+        const target = {
+          stat: 'mean' as const,
+          operator: '>' as const,
+          value: 80,
+        };
+        const measure = new Measure({ target });
+        measure.record(baseValues);
+        expect(measure.targetStatus()).toEqual({
+          target,
+          actual: 82.8,
+          achieved: true,
+        });
+      });
+    });
+  });
+
   describe('#countBy', () => {
     // Three dates used across all unit tests:
     // d1: 2024-01-15 10:30:45.123  (month=0, date=15, dayOfWeek=1/Mon, hour=10, min=30, sec=45, ms=123)
