@@ -55,6 +55,35 @@ measure.zscore(3);
 // Calculate the simple moving average over the last N recordings
 measure.simpleMovingAverage(3); // Returns the average of the last 3 recordings
 
+// Defining a target and checking whether it has been achieved
+// Pass a target when creating the Measure instance. A target has three fields:
+//   stat     - which statistic to evaluate: 'mean', 'median', 'mode', 'variance', 'stdev', or 'zscore'
+//   operator - comparison to apply: '>', '<', '>=', '<=', or '='
+//   value    - the threshold to compare against
+//   input    - (zscore only) the value whose z-score is computed
+const targetMeasure = new Measure({
+  target: { stat: 'mean', operator: '>', value: 80 },
+});
+targetMeasure.record([72, 85, 91, 78, 88]);
+
+// Returns true/false once there are recordings, or null if there are none yet
+targetMeasure.targetAchieved(); // true  (mean is 82.8, which is > 80)
+
+// Returns the full status object
+targetMeasure.targetStatus();
+// {
+//   target:   { stat: 'mean', operator: '>', value: 80 },
+//   actual:   82.8,
+//   achieved: true,
+// }
+
+// Targeting other stats works the same way:
+new Measure({ target: { stat: 'median',   operator: '>=', value: 85  } });
+new Measure({ target: { stat: 'mode',     operator: '=',  value: 3   } }); // checks mode array includes 3
+new Measure({ target: { stat: 'variance', operator: '<',  value: 2   } });
+new Measure({ target: { stat: 'stdev',    operator: '<=', value: 1.5 } });
+new Measure({ target: { stat: 'zscore',   operator: '>',  value: 0.5, input: 4 } });
+
 // Measuring dates
 // Use type 'date' to record Date objects and analyse them by time unit
 const dateMeasure = new Measure({ type: 'date' });

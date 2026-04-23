@@ -1,9 +1,17 @@
-import type { DateUnit, MeasureType, ValueType } from './global.js';
+import type {
+  DateUnit,
+  MeasureType,
+  Target,
+  TargetOperator,
+  TargetStatus,
+  ValueType,
+} from './global.js';
 
 // Interfaces
 
 interface MeasureProps {
   type?: MeasureType;
+  target?: Target;
 }
 
 interface CountObject {
@@ -15,10 +23,12 @@ interface CountObject {
 class Measure {
   type: MeasureType;
   recordings: Array<number | Date>;
+  target: Target | undefined;
 
   constructor(props: MeasureProps = {}) {
     this.type = props.type || 'sample';
     this.recordings = []; // This is good for in-memory storage, and when data sizes are small. Perhaps in future a database option would be good, like sqlite as a starter.
+    this.target = props.target;
   }
 
   // Throws if this instance is configured for date recordings
@@ -216,6 +226,66 @@ class Measure {
       counts[k] = (counts[k] ?? 0) + 1;
     }
     return counts;
+  }
+
+  private compareValue(
+    actual: number,
+    operator: TargetOperator,
+    value: number
+  ): boolean {
+    switch (operator) {
+      case '>':
+        return actual > value;
+      case '<':
+        return actual < value;
+      case '>=':
+        return actual >= value;
+      case '<=':
+        return actual <= value;
+      case '=':
+        return actual === value;
+    }
+  }
+
+  private getActual(): number | number[] | null {
+    if (!this.target) throw new Error('No target defined');
+    const { stat, input } = this.target;
+    switch (stat) {
+      case 'mean':
+        return this.mean();
+      case 'median':
+        return this.median();
+      case 'mode':
+        return this.mode();
+      case 'variance':
+        return this.variance();
+      case 'stdev':
+        return this.stdev();
+      case 'zscore': {
+        if (input === undefined)
+          throw new Error('Target with stat "zscore" requires an input value');
+        return this.zscore(input);
+      }
+    }
+  }
+
+  targetAchieved(): boolean | null {
+    if (!this.target) throw new Error('No target defined');
+    const { operator, value } = this.target;
+    const actual = this.getActual();
+    if (actual === null) return null;
+    if (Array.isArray(actual)) {
+      if (operator === '=') return actual.includes(value);
+      return actual.every((v) => this.compareValue(v, operator, value));
+    }
+    return this.compareValue(actual, operator, value);
+  }
+
+  targetStatus(): TargetStatus {
+    if (!this.target) throw new Error('No target defined');
+    const actual = this.getActual();
+    const achieved = actual === null ? null : this.targetAchieved();
+    return { target: this.target, actual, achieved };
   }
 }
 
