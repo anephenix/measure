@@ -61,7 +61,7 @@
     "@biomejs/biome": "2.4.15",
     "@size-limit/esbuild-why": "^12.1.0",
     "@size-limit/preset-small-lib": "^12.1.0",
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "@vitest/coverage-v8": "^4.1.6",
     "cross-env": "^10.1.0",
     "husky": "^9.1.7",
