@@ -4,6 +4,18 @@ A measurement framework from Anephenix
 
 [![npm version](https://badge.fury.io/js/%40anephenix%2Fmeasure.svg)](https://badge.fury.io/js/%40anephenix%2Fmeasure) ![example workflow](https://github.com/anephenix/measure/actions/workflows/main.yml/badge.svg) [![Socket Badge](https://socket.dev/api/badge/npm/package/@anephenix/measure)](https://socket.dev/npm/package/@anephenix/measure)
 
+## What is Measure used for?
+
+Measure is a small library that allows you to:
+
+- Record a list of values (e.g. numerical measurements like a sensor temperature, or CPU load)
+- Derive some statistical measurements from those values (mean, median, mode, standard deviation, variance, counts of occurrences) 
+- Calculate the standard score (Z-Score) of a given value
+- Calculate the SMA (Simple Moving Average) of your measurements
+- Measure the occurrence of time units within a list of datetime values
+- Set a target that you want to aim for, and calculate whether the target is achieved
+
+It's useful for case where you're collecting some data in a Node.js or web-based context, and you would like to perform some statistical analysis on the data within the process.
 
 ### Install
 
