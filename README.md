@@ -202,6 +202,20 @@ For `zscore` targets, supply an `input` field — the value whose z-score is com
 
 ---
 
+## Examples
+
+The `examples/` folder contains runnable scripts that show the library being used in realistic scenarios. Each file can be run with `node examples/<filename>` after building the library (`npm run build`).
+
+| File | What it demonstrates |
+|------|----------------------|
+| [`financial-analysis.js`](examples/financial-analysis.js) | Compares stocks in a sector across revenue growth, P/E ratio, and profit margin. Uses z-scores to rank companies and flag outliers that may be high-performers or anomalies. |
+| [`system-benchmark.js`](examples/system-benchmark.js) | Benchmarks a Node.js workload across 20 runs using `performance.now()` and the `os` module. Reports mean, median, standard deviation, and an SMA trend that reveals JIT warm-up effects. |
+| [`log-analysis.js`](examples/log-analysis.js) | Analyses timestamped application log entries to find patterns — which hours, days of the week, and months see the most errors and warnings. |
+| [`price-chart.js`](examples/price-chart.js) | Computes 7-day and 20-day SMAs for daily closing prices, checks for a golden-cross buy signal using target tracking, and draws all three series as an ASCII chart in the terminal. |
+| [`csv-export.js`](examples/csv-export.js) | Records simulated sensor readings, enriches each value with its z-score and SMA, then writes both a per-reading CSV and a summary statistics CSV using Node.js `fs` — a starting point for persisting or exporting any Measure data. |
+
+---
+
 ## Development
 
 ### Running tests
