@@ -58,7 +58,7 @@
     }
   ],
   "devDependencies": {
-    "@biomejs/biome": "2.5.14",
+    "@biomejs/biome": "2.5.15",
     "@size-limit/esbuild-why": "^14.1.0",
     "@size-limit/preset-small-lib": "^14.1.0",
     "@types/node": "^26.6.1",
