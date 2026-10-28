@@ -47,11 +47,11 @@ console.log(measure.recordings); // [42, 17, 23, 8]
 
 The `type` option controls how variance and standard deviation are calculated:
 
-| `type`       | Use when…                                               |
-|--------------|---------------------------------------------------------|
-| `'sample'`   | Your recordings are a sample of a larger population (default) |
-| `'population'` | Your recordings *are* the full population             |
-| `'date'`     | You are recording `Date` objects (see §6 below)         |
+| `type`         | Use when…                                                     |
+| -------------- | ------------------------------------------------------------- |
+| `'sample'`     | Your recordings are a sample of a larger population (default) |
+| `'population'` | Your recordings _are_ the full population                     |
+| `'date'`       | You are recording `Date` objects (see §6 below)               |
 
 ---
 
@@ -63,10 +63,10 @@ Once you have recordings you can derive the most common summary statistics.
 const m = new Measure();
 m.record([4, 7, 7, 2, 9]);
 
-m.mean();    // 5.8  — arithmetic average
-m.median();  // 7    — middle value when sorted
-m.mode();    // [7]  — most frequent value(s); returns an array
-m.counts();  // { '2': 1, '4': 1, '7': 2, '9': 1 }
+m.mean(); // 5.8  — arithmetic average
+m.median(); // 7    — middle value when sorted
+m.mode(); // [7]  — most frequent value(s); returns an array
+m.counts(); // { '2': 1, '4': 1, '7': 2, '9': 1 }
 ```
 
 All methods return `null` when there are no recordings yet.
@@ -90,7 +90,7 @@ const m = new Measure({ type: 'sample' });
 m.record([2, 4, 4, 4, 5, 5, 7, 9]);
 
 m.variance(); // 4.571…
-m.stdev();    // 2.138…
+m.stdev(); // 2.138…
 ```
 
 Use `type: 'population'` to divide by N instead of N−1:
@@ -100,7 +100,7 @@ const pop = new Measure({ type: 'population' });
 pop.record([2, 4, 4, 4, 5, 5, 7, 9]);
 
 pop.variance(); // 4      (exact population variance)
-pop.stdev();    // 2
+pop.stdev(); // 2
 ```
 
 ---
@@ -122,7 +122,7 @@ m.zscore(10); // -1.26
 
 ### 5. Simple Moving Average (SMA)
 
-Smooth out noise by computing a rolling average over the last *N* recordings.
+Smooth out noise by computing a rolling average over the last _N_ recordings.
 
 ```javascript
 const m = new Measure();
@@ -150,10 +150,10 @@ dateMeasure.record(new Date('2024-01-15T10:30:00'));
 dateMeasure.record(new Date('2024-03-20T14:00:00'));
 dateMeasure.record(new Date('2025-01-15T10:45:00'));
 
-dateMeasure.countBy('year');      // { '2024': 2, '2025': 1 }
-dateMeasure.countBy('month');     // { '0': 2, '2': 1 }   (0-based: 0 = Jan)
+dateMeasure.countBy('year'); // { '2024': 2, '2025': 1 }
+dateMeasure.countBy('month'); // { '0': 2, '2': 1 }   (0-based: 0 = Jan)
 dateMeasure.countBy('dayOfWeek'); // { '1': 1, '3': 2 }   (0-based: 0 = Sun)
-dateMeasure.countBy('hour');      // { '10': 2, '14': 1 }
+dateMeasure.countBy('hour'); // { '10': 2, '14': 1 }
 ```
 
 Supported units: `'year'`, `'month'`, `'date'`, `'dayOfWeek'`, `'hour'`, `'minute'`, `'second'`, `'millisecond'`
@@ -191,11 +191,13 @@ m.targetStatus();
 
 ```javascript
 // Target examples for each stat
-new Measure({ target: { stat: 'median',   operator: '>=', value: 85  } });
-new Measure({ target: { stat: 'mode',     operator: '=',  value: 3   } }); // passes when mode array includes 3
-new Measure({ target: { stat: 'variance', operator: '<',  value: 2   } });
-new Measure({ target: { stat: 'stdev',    operator: '<=', value: 1.5 } });
-new Measure({ target: { stat: 'zscore',   operator: '>',  value: 0.5, input: 4 } });
+new Measure({ target: { stat: 'median', operator: '>=', value: 85 } });
+new Measure({ target: { stat: 'mode', operator: '=', value: 3 } }); // passes when mode array includes 3
+new Measure({ target: { stat: 'variance', operator: '<', value: 2 } });
+new Measure({ target: { stat: 'stdev', operator: '<=', value: 1.5 } });
+new Measure({
+  target: { stat: 'zscore', operator: '>', value: 0.5, input: 4 },
+});
 ```
 
 For `zscore` targets, supply an `input` field — the value whose z-score is computed against the current recordings.
@@ -206,13 +208,13 @@ For `zscore` targets, supply an `input` field — the value whose z-score is com
 
 The `examples/` folder contains runnable scripts that show the library being used in realistic scenarios. Each file can be run with `node examples/<filename>` after building the library (`npm run build`).
 
-| File | What it demonstrates |
-|------|----------------------|
-| [`financial-analysis.js`](examples/financial-analysis.js) | Compares stocks in a sector across revenue growth, P/E ratio, and profit margin. Uses z-scores to rank companies and flag outliers that may be high-performers or anomalies. |
-| [`system-benchmark.js`](examples/system-benchmark.js) | Benchmarks a Node.js workload across 20 runs using `performance.now()` and the `os` module. Reports mean, median, standard deviation, and an SMA trend that reveals JIT warm-up effects. |
-| [`log-analysis.js`](examples/log-analysis.js) | Analyses timestamped application log entries to find patterns — which hours, days of the week, and months see the most errors and warnings. |
-| [`price-chart.js`](examples/price-chart.js) | Computes 7-day and 20-day SMAs for daily closing prices, checks for a golden-cross buy signal using target tracking, and draws all three series as an ASCII chart in the terminal. |
-| [`csv-export.js`](examples/csv-export.js) | Records simulated sensor readings, enriches each value with its z-score and SMA, then writes both a per-reading CSV and a summary statistics CSV using Node.js `fs` — a starting point for persisting or exporting any Measure data. |
+| File                                                      | What it demonstrates                                                                                                                                                                                                                 |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`financial-analysis.js`](examples/financial-analysis.js) | Compares stocks in a sector across revenue growth, P/E ratio, and profit margin. Uses z-scores to rank companies and flag outliers that may be high-performers or anomalies.                                                         |
+| [`system-benchmark.js`](examples/system-benchmark.js)     | Benchmarks a Node.js workload across 20 runs using `performance.now()` and the `os` module. Reports mean, median, standard deviation, and an SMA trend that reveals JIT warm-up effects.                                             |
+| [`log-analysis.js`](examples/log-analysis.js)             | Analyses timestamped application log entries to find patterns — which hours, days of the week, and months see the most errors and warnings.                                                                                          |
+| [`price-chart.js`](examples/price-chart.js)               | Computes 7-day and 20-day SMAs for daily closing prices, checks for a golden-cross buy signal using target tracking, and draws all three series as an ASCII chart in the terminal.                                                   |
+| [`csv-export.js`](examples/csv-export.js)                 | Records simulated sensor readings, enriches each value with its z-score and SMA, then writes both a per-reading CSV and a summary statistics CSV using Node.js `fs` — a starting point for persisting or exporting any Measure data. |
 
 ---
 
